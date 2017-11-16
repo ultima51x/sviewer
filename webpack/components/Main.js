@@ -1,7 +1,7 @@
 import React from 'react'
 
 import AlbumDetails from '../containers/AlbumDetails'
-import FilterContainer from './FilterContainer'
+import FilterContainer from '../containers/FilterContainer'
 
 import './Main.scss'
 
