@@ -5,7 +5,7 @@ import './Filter.scss'
 export default class Filter extends React.Component {
   constructor(props) {
     super(props)
-    this.onSelectHandler = props.onSelect
+    this.onFilterHandler = props.onFilter
     this.keyName = props.keyName
     this.priority = props.priority
     this.criteria = props.criteria || []
@@ -18,7 +18,7 @@ export default class Filter extends React.Component {
     // } else if (evt.shiftKey) {
     // 	alert('shift')
     // }
-    this.onSelectHandler(this.keyName, [keyId])
+    this.onFilterHandler(this.keyName, [keyId])
   }
 
   isKey(keyId) {

@@ -1,10 +1,12 @@
 import { getYears } from './tempStore'
-import { FILTER } from '../actions'
+import { FILTER, STATE } from '../actions'
 
-const years = (_state = [], action) => {
+const years = (state = [], action) => {
   switch (action.type) {
   case FILTER:
     return getYears(action.criteria)
+  case STATE:
+    return state
   default:
     return getYears({})
   }

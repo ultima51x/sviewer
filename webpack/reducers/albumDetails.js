@@ -1,8 +1,14 @@
-const albumDetails = (_state = [], _action) => {
-  // TODO
-  return {
-    artist: 'Artist Name',
-    album: 'The Album Name'
+import { getAlbumDetails } from './tempStore'
+import { FILTER, SELECT } from '../actions'
+
+const albumDetails = (state = null, action) => {
+  switch(action.type) {
+  case SELECT:
+    return getAlbumDetails(action.albumId)
+  case FILTER:
+    return state
+  default:
+    return null
   }
 }
 

@@ -14,6 +14,7 @@ const simplerItems = tempJSON.items.map((item) => {
         disc: tT.disc_number,
         track: tT.track_number,
         uri: tT.uri,
+        name: tT.name,
       }
     })
   }
@@ -78,4 +79,8 @@ export function getAlbums(criteria) {
   }, {})
 
   return hashToSortedArr(obj)
+}
+
+export function getAlbumDetails(albumId) {
+  return simplerItems.filter(item => item.uri === albumId)[0]
 }

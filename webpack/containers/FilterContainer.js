@@ -2,7 +2,7 @@ import React from 'react'
 import Filter from '../components/Filter'
 
 import { connect } from 'react-redux'
-import { filter } from '../actions'
+import { filter, selectAlbum } from '../actions'
 
 import './FilterContainer.scss'
 
@@ -16,8 +16,11 @@ const mapStateToProps = (state, _ownProps) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onSelect: (criteria) => {
+    onFilter: (criteria) => {
       dispatch(filter(criteria))
+    },
+    onSelect: (albumId) => {
+      dispatch(selectAlbum(albumId))
     }
   }
 }
@@ -43,25 +46,29 @@ class FilterContainer extends React.Component {
     }
 
     newCrit[keyName] = arr
-    this.setStateAndDispatch(newCrit)
+    this.setStateAndDispatchFilter(newCrit)
+
+    if (keyName === 'albums' && arr.length === 1) {
+      this.props.onSelect(arr[0])
+    }
   }
 
-  setStateAndDispatch(newCrit) {
-    this.props.onSelect(newCrit)
+  setStateAndDispatchFilter(newCrit) {
+    this.props.onFilter(newCrit)
     this.setState({ criteria: newCrit })
   }
 
   render() {
     return (
       <div className="filter-container">
-        <button onClick={() => this.setStateAndDispatch({})}>Clear</button>
-        <Filter list={this.props.artists} onSelect={this.setFilter.bind(this)}
+        <button onClick={() => this.setStateAndDispatchFilter({})}>Clear</button>
+        <Filter list={this.props.artists} onFilter={this.setFilter.bind(this)}
           keyName='artists' priority={this.priorities.artists}
           criteria={this.state.criteria.artists} />
-        <Filter list={this.props.years} onSelect={this.setFilter.bind(this)}
+        <Filter list={this.props.years} onFilter={this.setFilter.bind(this)}
           keyName='years' priority={this.priorities.years}
           criteria={this.state.criteria.years} />
-        <Filter list={this.props.albums} onSelect={this.setFilter.bind(this)}
+        <Filter list={this.props.albums} onFilter={this.setFilter.bind(this)}
           keyName='albums' priority={this.priorities.albums}
           criteria={this.state.criteria.albums} />
       </div>
