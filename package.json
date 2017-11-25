@@ -11,7 +11,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "start:electron": "electron .",
-    "start:webpack": "webpack-dev-server",
+    "start:webpack": "webpack-dev-server -d",
     "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

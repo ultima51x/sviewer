@@ -28,7 +28,7 @@ export default class Filter extends React.Component {
   render() {
     // active class
     return (
-      <div className="list-group filter">
+      <div className="filter list-group">
         {
           this.props.list.map((elem) =>
             <a

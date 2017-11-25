@@ -1,5 +1,14 @@
 .filter-container {
-    background-color: red;
-    display: flex;
-    flex-direction: row;
+    height: 100%;
+    width: calc(100% - 400px);
+
+    &__toprow {
+        height: 30px;
+    }
+
+    &__columns {
+        height: calc(100% - 30px);
+        display: flex;
+        flex-direction: row;
+    }
 }

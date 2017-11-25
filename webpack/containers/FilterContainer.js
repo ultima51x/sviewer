@@ -61,16 +61,20 @@ class FilterContainer extends React.Component {
   render() {
     return (
       <div className="filter-container">
-        <button onClick={() => this.setStateAndDispatchFilter({})}>Clear</button>
-        <Filter list={this.props.artists} onFilter={this.setFilter.bind(this)}
-          keyName='artists' priority={this.priorities.artists}
-          criteria={this.state.criteria.artists} />
-        <Filter list={this.props.years} onFilter={this.setFilter.bind(this)}
-          keyName='years' priority={this.priorities.years}
-          criteria={this.state.criteria.years} />
-        <Filter list={this.props.albums} onFilter={this.setFilter.bind(this)}
-          keyName='albums' priority={this.priorities.albums}
-          criteria={this.state.criteria.albums} />
+        <div className="filter-container__toprow">
+          <button onClick={() => this.setStateAndDispatchFilter({})}>Clear</button>
+        </div>
+        <div className="filter-container__columns">
+          <Filter list={this.props.artists} onFilter={this.setFilter.bind(this)}
+            keyName='artists' priority={this.priorities.artists}
+            criteria={this.state.criteria.artists} />
+          <Filter list={this.props.years} onFilter={this.setFilter.bind(this)}
+            keyName='years' priority={this.priorities.years}
+            criteria={this.state.criteria.years} />
+          <Filter list={this.props.albums} onFilter={this.setFilter.bind(this)}
+            keyName='albums' priority={this.priorities.albums}
+            criteria={this.state.criteria.albums} />
+        </div>
       </div>
     )
   }
