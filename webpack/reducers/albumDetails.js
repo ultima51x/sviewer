@@ -1,10 +1,9 @@
-import { getAlbumDetails } from './tempStore'
 import { FILTER, SELECT } from '../actions'
 
 const albumDetails = (state = null, action) => {
   switch(action.type) {
   case SELECT:
-    return getAlbumDetails(action.albumId)
+    return action.data
   case FILTER:
     return state
   default:

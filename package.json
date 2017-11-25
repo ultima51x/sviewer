@@ -1,6 +1,7 @@
 {
   "name": "sviewer",
   "version": "0.0.1",
+  "repository": "https://github.com/ultima51x/sviewer",
   "description": "Views a library of a popular music player",
   "main": "main.js",
   "engines": {
@@ -11,7 +12,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "start:electron": "electron .",
-    "start:webpack": "webpack-dev-server -d",
+    "start:webpack": "webpack-dev-server -d --target=electron",
     "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -35,11 +36,13 @@
     "webpack-dev-server": "^2.9.4"
   },
   "dependencies": {
+    "axios": "^0.17.1",
     "bootstrap": "^3.3.7",
     "dotenv": "^4.0.0",
     "react": "^16.1.0",
     "react-dom": "^16.1.0",
     "react-redux": "^5.0.6",
-    "redux": "^3.7.2"
+    "redux": "^3.7.2",
+    "redux-promise": "^0.5.3"
   }
 }

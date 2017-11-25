@@ -3,6 +3,7 @@ import Filter from '../components/Filter'
 
 import { connect } from 'react-redux'
 import { filter, selectAlbum } from '../actions'
+const { ipcRenderer } = require('electron')
 
 import './FilterContainer.scss'
 
@@ -58,11 +59,20 @@ class FilterContainer extends React.Component {
     this.setState({ criteria: newCrit })
   }
 
+  refreshData() {
+    // need to preserve state when refreshed...
+    ipcRenderer.on('event:refresh:end', (_evt, _arg) => {
+      this.props.onFilter(this.state.criteria)
+    })
+    ipcRenderer.send('event:refresh:start')
+  }
+
   render() {
     return (
       <div className="filter-container">
         <div className="filter-container__toprow">
           <button onClick={() => this.setStateAndDispatchFilter({})}>Clear</button>
+          <button onClick={() => this.refreshData()}>Refresh</button>
         </div>
         <div className="filter-container__columns">
           <Filter list={this.props.artists} onFilter={this.setFilter.bind(this)}
