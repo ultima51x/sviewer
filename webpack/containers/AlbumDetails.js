@@ -9,7 +9,7 @@ const mapStateToProps = (state, _ownProps) => {
 
 function prettyArtistName(artists) {
   return artists.map((a) => 
-    <li key={a.uri}>
+    <li key={a.id}>
       <h4><a href={a.uri}>{a.name}</a></h4>
     </li>
   )
@@ -17,7 +17,7 @@ function prettyArtistName(artists) {
 
 function trackList(tracks) {
   return tracks.map((track) => 
-    <li key={track.uri}>
+    <li key={track.id}>
       <a href={track.uri}>{track.disc}-{track.track}. {track.name}</a>
     </li>
   )

@@ -3,18 +3,20 @@ import tempJSON from './tempJson.json'
 const simplerItems = tempJSON.items.map((item) => {
   const album = item.album
   return {
+    id: album.id,
+    uri: album.uri,
+    name: album.name,
     artists: album.artists.map((aT) => {
-      return { name: aT.name, uri: aT.uri }
+      return { id: aT.id, name: aT.name, uri: aT.uri }
     }),
     year: (album.release_date_prec !== 'year' ? album.release_date.substring(0, 4) : album.release_date),
-    name: album.name,
-    uri: album.uri,
     tracks: album.tracks.items.map((tT) => {
       return {
-        disc: tT.disc_number,
-        track: tT.track_number,
+        id: tT.id,
         uri: tT.uri,
         name: tT.name,
+        disc: tT.disc_number,
+        track: tT.track_number,
       }
     })
   }
