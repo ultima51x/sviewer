@@ -11,9 +11,10 @@
   "scripts": {
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "start:electron": "electron .",
-    "start:webpack": "webpack-dev-server -d --target=electron",
-    "build": "webpack",
+    "start": "electron .",
+    "dev:electron": "NODE_ENV=development electron .",
+    "dev:webpack": "webpack-dev-server -d --target=electron",
+    "build": "webpack --target=electron",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "David Hwang",

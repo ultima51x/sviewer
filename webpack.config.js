@@ -3,7 +3,8 @@ const path = require('path')
 module.exports = {
   entry: './webpack/app.js',
   output: {
-    filename: './dist/webpack.js'
+    path: __dirname + '/dist',
+    filename: 'webpack.js'
   },
   module: {
     loaders: [
