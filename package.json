@@ -1,6 +1,7 @@
 {
   "name": "sviewer",
   "version": "0.0.1",
+  "repository": "https://github.com/ultima51x/sviewer",
   "description": "Views a library of a popular music player",
   "main": "main.js",
   "engines": {
@@ -9,9 +10,11 @@
   },
   "scripts": {
     "lint": "eslint .",
-    "start:electron": "electron .",
-    "start:webpack": "webpack-dev-server",
-    "build": "webpack",
+    "lint:fix": "eslint . --fix",
+    "start": "electron .",
+    "dev:electron": "NODE_ENV=development electron .",
+    "dev:webpack": "webpack-dev-server -d --target=electron",
+    "build": "webpack --target=electron",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "David Hwang",
@@ -19,17 +22,28 @@
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.7",
     "electron": "^1.7.9",
     "eslint": "^4.11.0",
     "eslint-plugin-react": "^7.4.0",
+    "file-loader": "^1.1.5",
+    "node-sass": "^4.6.1",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.19.0",
     "webpack": "^3.8.1",
     "webpack-dev-server": "^2.9.4"
   },
   "dependencies": {
+    "axios": "^0.17.1",
+    "bootstrap": "^3.3.7",
     "dotenv": "^4.0.0",
     "react": "^16.1.0",
-    "react-dom": "^16.1.0"
+    "react-dom": "^16.1.0",
+    "react-redux": "^5.0.6",
+    "redux": "^3.7.2",
+    "redux-promise": "^0.5.3"
   }
 }
