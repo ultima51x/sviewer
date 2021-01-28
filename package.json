@@ -26,7 +26,7 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.7",
-    "electron": "^1.7.9",
+    "electron": "^9.4.0",
     "eslint": "^4.11.0",
     "eslint-plugin-react": "^7.4.0",
     "file-loader": "^1.1.5",
